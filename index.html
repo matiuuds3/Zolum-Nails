@@ -14,16 +14,7 @@
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#1b0f0c; --surface:#26161a; --ink:#f7ebe7; --muted:#c9aea6;
-    --garnet:#e9876b; --garnet-deep:#f2a48c; --line:#4a2a25; --on-garnet:#1b0f0c;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#1b0f0c; --surface:#26161a; --ink:#f7ebe7; --muted:#c9aea6;
-  --garnet:#e9876b; --garnet-deep:#f2a48c; --line:#4a2a25; --on-garnet:#1b0f0c;
-}
+html{color-scheme:light}
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -63,11 +54,21 @@ section h2{font-size:clamp(2rem,6vw,3.2rem);color:var(--garnet);margin-bottom:10
 .menu small{display:block;color:var(--muted);font-family:"DM Sans",sans-serif;font-size:.9rem;font-weight:400}
 .menu .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-5px);min-width:16px}
 .menu .p{font-weight:700;color:var(--garnet);white-space:nowrap}
-.cols{display:grid;gap:44px;grid-template-columns:1.4fr 1fr}
+.cols{display:grid;gap:40px;grid-template-columns:1fr}
 .extras{background:var(--surface);padding:24px;border-radius:18px;align-self:start}
 .extras h3{font-size:1.5rem;color:var(--garnet-deep);margin-bottom:8px}
 .extras .menu li{padding:12px 0}
 .extras .menu .n{font-size:1.05rem}
+
+/* servicios con foto */
+.services{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.svc{border:2px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg)}
+.ph{position:relative;aspect-ratio:4/5;background:var(--surface);display:grid;place-items:center;padding:16px;text-align:center;color:var(--garnet);font-family:Fraunces,Georgia,serif;font-style:italic}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.svc-body{padding:20px 22px 24px}
+.svc h3{font-size:1.5rem;color:var(--ink)}
+.svc p{margin:6px 0 14px;color:var(--muted)}
+.svc .price{font-weight:700;font-size:1.25rem;color:var(--garnet)}
 
 /* agenda */
 form{display:grid;gap:16px;grid-template-columns:1fr 1fr;max-width:720px}
@@ -90,6 +91,12 @@ footer{padding:34px 0 46px;color:var(--muted);font-size:.95rem;display:flex;flex
   form{grid-template-columns:1fr}
   .top nav a:not(:last-child){display:none}
   .map iframe{height:300px}
+  .wrap{padding:0 28px}
+  section{padding:52px 0}
+  .lead{margin-bottom:28px}
+  .svc-body{padding:22px 26px 28px}
+  .extras{padding:28px 26px}
+  .extras .menu li{padding:15px 0}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -120,12 +127,23 @@ footer{padding:34px 0 46px;color:var(--muted);font-size:.95rem;display:flex;flex
       <h2 id="t-precios">Precios</h2>
       <p class="lead">Valores en guaraníes. El diseño que elijas se suma como extra.</p>
       <div class="cols">
-        <ul class="menu">
-          <li><span class="n">Semipermanente<small>Esmaltado de larga duración</small></span><span class="dots"></span><span class="p">50.000</span></li>
-          <li><span class="n">Soft gel<small>Extensión con tips de gel</small></span><span class="dots"></span><span class="p">120.000</span></li>
-          <li><span class="n">Kapping<small>Refuerzo en gel sobre tu uña natural</small></span><span class="dots"></span><span class="p">80.000</span></li>
-          <li><span class="n">Servicio a domicilio<small>Voy a tu casa</small></span><span class="dots"></span><span class="p">Costo extra según distancia</span></li>
-        </ul>
+        <div class="services">
+          <article class="svc">
+            <div class="ph">Foto de semipermanente<img src="smi.jpeg" alt="Uñas semipermanentes de Zolum Nails" loading="lazy" onerror="this.remove()"></div>
+            <div class="svc-body"><h3>Semipermanente</h3><p>Esmaltado de larga duración</p><span class="price">Gs. 50.000</span></div>
+          </article>
+          <article class="svc">
+            <div class="ph">Foto de soft gel<img src="soft.jpeg" alt="Uñas soft gel de Zolum Nails" loading="lazy" onerror="this.remove()"></div>
+            <div class="svc-body"><h3>Soft gel</h3><p>Extensión con tips de gel</p><span class="price">Gs. 120.000</span></div>
+          </article>
+          <article class="svc">
+            <div class="ph">Foto de kapping<img src="kapping.jpeg" alt="Uñas con kapping de Zolum Nails" loading="lazy" onerror="this.remove()"></div>
+            <div class="svc-body"><h3>Kapping</h3><p>Refuerzo en gel sobre tu uña natural</p><span class="price">Gs. 80.000</span></div>
+          </article>
+          <article class="svc">
+            <div class="svc-body"><h3>Servicio a domicilio</h3><p>Voy a tu casa</p><span class="price">Costo extra según distancia</span></div>
+          </article>
+        </div>
         <aside class="extras" aria-labelledby="t-extras">
           <h3 id="t-extras">Extras</h3>
           <ul class="menu">
