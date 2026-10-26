@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zolum Nails · Uñas en Asunción</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --surface:#fbf4f1; --ink:#2a1511; --muted:#6e5650;
+  --garnet:#812907; --garnet-deep:#8a3223; --line:#ecd9d2; --on-garnet:#ffffff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b0f0c; --surface:#26161a; --ink:#f7ebe7; --muted:#c9aea6;
+    --garnet:#e9876b; --garnet-deep:#f2a48c; --line:#4a2a25; --on-garnet:#1b0f0c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b0f0c; --surface:#26161a; --ink:#f7ebe7; --muted:#c9aea6;
+  --garnet:#e9876b; --garnet-deep:#f2a48c; --line:#4a2a25; --on-garnet:#1b0f0c;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--garnet-deep);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;line-height:1.08;margin:0}
+
+/* barra */
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.3rem;color:var(--garnet);text-decoration:none}
+.top nav{display:flex;gap:20px;font-weight:500;font-size:.95rem}
+.top nav a{text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--garnet)}
+
+/* hero */
+.hero{padding:40px 0 64px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(4.2rem,17vw,11rem);font-weight:800;letter-spacing:-.04em;color:var(--garnet);line-height:.9}
+.hero h1 span{display:block;font-weight:400;font-style:italic;color:var(--garnet-deep)}
+.hero p{max-width:34ch;font-size:1.2rem;margin:28px 0 30px;color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--garnet);cursor:pointer;font:inherit;font-weight:700}
+.btn.solid{background:var(--garnet);color:var(--on-garnet)}
+.btn.solid:hover{background:var(--garnet-deep);border-color:var(--garnet-deep)}
+.btn.line{background:transparent;color:var(--garnet)}
+.btn.line:hover{background:var(--surface)}
+
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:clamp(2rem,6vw,3.2rem);color:var(--garnet);margin-bottom:10px}
+.lead{color:var(--muted);margin:0 0 34px;max-width:52ch}
+
+/* precios */
+.menu{list-style:none;margin:0;padding:0}
+.menu li{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-top:1px solid var(--line)}
+.menu li:last-child{border-bottom:1px solid var(--line)}
+.menu .n{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.35rem}
+.menu small{display:block;color:var(--muted);font-family:"DM Sans",sans-serif;font-size:.9rem;font-weight:400}
+.menu .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-5px);min-width:16px}
+.menu .p{font-weight:700;color:var(--garnet);white-space:nowrap}
+.cols{display:grid;gap:44px;grid-template-columns:1.4fr 1fr}
+.extras{background:var(--surface);padding:24px;border-radius:18px;align-self:start}
+.extras h3{font-size:1.5rem;color:var(--garnet-deep);margin-bottom:8px}
+.extras .menu li{padding:12px 0}
+.extras .menu .n{font-size:1.05rem}
+
+/* agenda */
+form{display:grid;gap:16px;grid-template-columns:1fr 1fr;max-width:720px}
+label{display:grid;gap:6px;font-weight:700;font-size:.95rem}
+input,select{font:inherit;padding:13px 14px;border:2px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink)}
+input:focus,select:focus{border-color:var(--garnet)}
+form .full{grid-column:1/-1}
+.note{font-size:.9rem;color:var(--muted);margin:0}
+
+/* ubicación */
+.map{border:2px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
+.map iframe{display:block;width:100%;height:380px;border:0}
+.where{display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;justify-content:space-between;margin-top:18px}
+.where p{margin:0}
+
+footer{padding:34px 0 46px;color:var(--muted);font-size:.95rem;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+@media (max-width:760px){
+  .cols{grid-template-columns:1fr}
+  form{grid-template-columns:1fr}
+  .top nav a:not(:last-child){display:none}
+  .map iframe{height:300px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#inicio">Zolum Nails</a>
+    <nav aria-label="Principal">
+      <a href="#precios">Precios</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#agenda">Agendar</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <div class="hero">
+      <h1>Zolum <span>Nails</span></h1>
+      <p>Uñas semipermanentes, soft gel y kapping en Asunción. También voy a tu domicilio.</p>
+      <div class="btns">
+        <a class="btn solid" href="#agenda">Agendar mi cita</a>
+        <a class="btn line" href="#precios">Ver precios</a>
+      </div>
+    </div>
+
+    <section id="precios" aria-labelledby="t-precios">
+      <h2 id="t-precios">Precios</h2>
+      <p class="lead">Valores en guaraníes. El diseño que elijas se suma como extra.</p>
+      <div class="cols">
+        <ul class="menu">
+          <li><span class="n">Semipermanente<small>Esmaltado de larga duración</small></span><span class="dots"></span><span class="p">50.000</span></li>
+          <li><span class="n">Soft gel<small>Extensión con tips de gel</small></span><span class="dots"></span><span class="p">120.000</span></li>
+          <li><span class="n">Kapping<small>Refuerzo en gel sobre tu uña natural</small></span><span class="dots"></span><span class="p">80.000</span></li>
+          <li><span class="n">Servicio a domicilio<small>Voy a tu casa</small></span><span class="dots"></span><span class="p">Costo extra según distancia</span></li>
+        </ul>
+        <aside class="extras" aria-labelledby="t-extras">
+          <h3 id="t-extras">Extras</h3>
+          <ul class="menu">
+            <li><span class="n">Retiro de semi</span><span class="dots"></span><span class="p">10.000</span></li>
+            <li><span class="n">Retiro de acrílicas</span><span class="dots"></span><span class="p">20.000</span></li>
+            <li><span class="n">Servicio / mantenimiento</span><span class="dots"></span><span class="p">80.000</span></li>
+            <li><span class="n">Diseños extra</span><span class="dots"></span><span class="p">5.000 – 10.000</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="ubicacion" aria-labelledby="t-ubi">
+      <h2 id="t-ubi">Dónde estamos</h2>
+      <p class="lead">Atendemos en Asunción. Si preferís, vamos a tu domicilio.</p>
+      <div class="map">
+        <!-- Ubicación por Plus Code: M9M9+VXP -->
+        <iframe title="Mapa de Zolum Nails en Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=M9M9%2BVXP%20Asunci%C3%B3n%2C%20Paraguay&output=embed"></iframe>
+      </div>
+      <div class="where">
+        <p>Asunción, Paraguay</p>
+        <div class="btns">
+          <a class="btn solid" href="https://www.google.com/maps/search/?api=1&query=M9M9%2BVXP%20Asunci%C3%B3n%2C%20Paraguay" target="_blank" rel="noopener">Abrir en Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="agenda" aria-labelledby="t-agenda">
+      <h2 id="t-agenda">Agendá tu cita</h2>
+      <p class="lead">Completá los datos y se abre WhatsApp con el mensaje listo para enviar. Te confirmamos el horario por ahí.</p>
+      <form id="cita">
+        <label>Nombre
+          <input name="nombre" required autocomplete="name">
+        </label>
+        <label>Servicio
+          <select name="servicio" required>
+            <option value="">Elegí un servicio</option>
+            <option>Semipermanente</option>
+            <option>Soft gel</option>
+            <option>Kapping</option>
+          </select>
+        </label>
+        <label>Fecha
+          <input type="date" name="fecha" required>
+        </label>
+        <label>Hora
+          <input type="time" name="hora" required>
+        </label>
+        <label>Lugar
+          <select name="lugar" required>
+            <option>En el local</option>
+            <option>A domicilio</option>
+          </select>
+        </label>
+        <label>Diseño o comentario (opcional)
+          <input name="nota">
+        </label>
+        <div class="full btns">
+          <button class="btn solid" type="submit">Enviar por WhatsApp</button>
+        </div>
+        <p class="note full">Con servicio a domicilio, el costo extra depende de la distancia.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <span>Zolum Nails · Asunción</span>
+    <a href="https://wa.me/595975319514" target="_blank" rel="noopener">WhatsApp 0975 319 514</a>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var f=document.getElementById('cita');
+  var d=f.elements['fecha'];
+  try{d.min=new Date().toISOString().slice(0,10);}catch(e){}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=f.elements;
+    var partes=v['fecha'].value.split('-');
+    var fecha=partes.length===3?partes[2]+'/'+partes[1]+'/'+partes[0]:v['fecha'].value;
+    var msg='Hola, soy '+v['nombre'].value+'. Quiero agendar '+v['servicio'].value+
+      ' el '+fecha+' a las '+v['hora'].value+' ('+v['lugar'].value.toLowerCase()+').'+
+      (v['nota'].value?' Comentario: '+v['nota'].value:'');
+    window.open('https://wa.me/595975319514?text='+encodeURIComponent(msg),'_blank','noopener');
+  });
+})();
+</script>
+</body>
+</html>
